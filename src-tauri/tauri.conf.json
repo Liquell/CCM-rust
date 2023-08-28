@@ -54,10 +54,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
-        "resizable": true,
+        "height": 415,
+        "resizable": false,
         "title": "ccm",
-        "width": 800
+        "width": 415
       }
     ]
   }

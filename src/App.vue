@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import Message from "./components/Message.vue";
+import Header from "./components/Header.vue";
+import Tabs from "./components/Tabs.vue";
 import { clipboard } from "@tauri-apps/api";
 
 const clipboardText = ref("");
@@ -37,6 +39,8 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <Header />
+  <Tabs />
   <div>
     <Message
       v-for="(msg, index) in clipboardHistory"
