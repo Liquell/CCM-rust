@@ -19,8 +19,14 @@ async function readClipboard() {
   }
 }
 
-async function copyMessageToClipboard(msg) {
+async function copyMessageToClipboard(msg, index) {
   await clipboard.writeText(msg);
+  moveMessageToTop(index);
+}
+
+function moveMessageToTop(index) {
+  const message = clipboardHistory.value.splice(index, 1)[0];
+  clipboardHistory.value.unshift(message);
 }
 
 function deleteMessage(index) {
@@ -47,7 +53,7 @@ onUnmounted(() => {
       :key="index"
       :msg="msg"
       @delete="deleteMessage(index)"
-      @copy="copyMessageToClipboard(msg)"
+      @copy="copyMessageToClipboard(msg, index)"
     />
   </div>
 </template>
